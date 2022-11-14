@@ -1,8 +1,11 @@
-import {  } from '@react-navigation/native';
 import React from 'react';
 import AccountFunctions from '../../components/AccountFunctions';
 import AccountInfo from '../../components/AccountInfo';
 import Header from '../../components/Header';
+import IonIcons from 'react-native-vector-icons/Ionicons';
+import FlexButton from '../../components/FlexButton';
+import News from '../../components/News';
+import CreditCardInfo from '../../components/CreditCardInfo';
 
 import {
   Container,
@@ -20,6 +23,12 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
       />
       <AccountInfo />
       <AccountFunctions />
+      <FlexButton
+        label='Meus cartões'
+        icon={<IonIcons name="card-outline" size={30} color="#000" />}
+      />
+      <News />
+      <CreditCardInfo />
     </Container>
   );
 };

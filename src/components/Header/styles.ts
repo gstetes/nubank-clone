@@ -1,8 +1,12 @@
 import styled from 'styled-components/native';
 
-export const HeaderContainer = styled.View`
+interface HeaderContainerProps {
+  hideUsername: boolean;
+};
+
+export const HeaderContainer = styled.View<HeaderContainerProps>`
   background-color: #810AD0;
-  height: 230px;
+  height: ${props => props.hideUsername ? '180px' : '230px'};
   padding-top: 80px;
   padding-left: 30px;
   padding-right: 30px;

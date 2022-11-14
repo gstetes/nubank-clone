@@ -10,6 +10,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
+import CashOptions from '../screens/CashOptions';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -18,14 +19,16 @@ const Stack = createNativeStackNavigator();
 const MainTabRoutes: React.FC = () => {
   return (
     <Tab.Navigator
-      initialRouteName='Home'
+      initialRouteName='HomeTab'
       screenOptions={({route}) => ({
         headerShown: false,
         tabBarIcon: ({ color, size}) => {
           let iconName;
 
           if (route.name === 'HomeTab') {
-            iconName = 'home-outline' 
+            iconName = 'home-outline';
+          } else if(route.name === 'CashTab') {
+            iconName = 'cash-outline';
           };
 
           return <Ionicons name={iconName} size={size} color={color} />
@@ -33,7 +36,8 @@ const MainTabRoutes: React.FC = () => {
         tabBarActiveTintColor: '#810AD0',
         tabBarInactiveTintColor: '#AAA',
         tabBarStyle: {
-          backgroundColor: '#FFFFFF70',
+          backgroundColor: '#FFFFFF',
+          opacity: 0.9,
           marginBottom: 20,
           position: 'absolute'
         },
@@ -41,6 +45,7 @@ const MainTabRoutes: React.FC = () => {
       })}
     >
       <Tab.Screen name="HomeTab" component={HomeStackRoutes} />
+      <Tab.Screen name="CashTab" component={CashOptions} />
     </Tab.Navigator>
   );
 };

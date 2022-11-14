@@ -15,13 +15,15 @@ import {
 
 interface HeaderOptions {
   onProfilePress: () => void;
+  hideUsername?: boolean;
 };
 
 const Header: React.FC<HeaderOptions> = ({
-  onProfilePress
+  onProfilePress,
+  hideUsername = false
 }) => {
   return (
-    <HeaderContainer>
+    <HeaderContainer hideUsername={hideUsername}>
       <HeaderContent>
         <UserButton onPress={onProfilePress}>
           <Ionicons name="person-outline" size={25} color="#d7b6ee" />
@@ -41,9 +43,11 @@ const Header: React.FC<HeaderOptions> = ({
           />
         </ButtonsContainer>
       </HeaderContent>
-      <WelcomeText>
-        Olá, Guilherme
-      </WelcomeText>
+      {!hideUsername && 
+        <WelcomeText>
+          Olá, Guilherme
+        </WelcomeText>
+      }
     </HeaderContainer>
   );
 }
